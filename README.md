@@ -1,5 +1,5 @@
-# Inery
-Inery Master Node
+# Inery Master Node
+
 Component Recommended Requirement 
 
 CPU Intel Core i7-8700 Hexa-Core
