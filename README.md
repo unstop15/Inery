@@ -1,48 +1,75 @@
 # Inery
 Inery Master Node
+Component Recommended Requirement 
 
+CPU Intel Core i7-8700 Hexa-Core
 
-*Update Package*
+RAM 64 GB DDR4 RAM
 
-``sudo apt-get update && sudo apt install git && sudo apt install screen``
+Storage 2 x 1 TB NVMe SSD Connection 
+
+1 Gbit/s port
+
+## *Update Package*
+
+```
+sudo apt-get update && sudo apt install git && sudo apt install screen
+```
 
 Update Tools
 
-``sudo apt-get install -y make bzip2 automake libbz2-dev libssl-dev doxygen graphviz libgmp3-dev \
+```
+sudo apt-get install -y make bzip2 automake libbz2-dev libssl-dev doxygen graphviz libgmp3-dev \
 autotools-dev libicu-dev python2.7 python2.7-dev python3 python3-dev \
 autoconf libtool curl zlib1g-dev sudo ruby libusb-1.0-0-dev \
-libcurl4-gnutls-dev pkg-config patch llvm-7-dev clang-7 vim-common jq libncurses5``
+libcurl4-gnutls-dev pkg-config patch llvm-7-dev clang-7 vim-common jq libncurses5
+```
 
-Edit Firewall Port
+## Edit Firewall Port
 
-``ufw allow 22 && ufw allow 8888 && ufw allow 9010 && ufw enable -y``
+```
+ufw allow 22 && ufw allow 8888 && ufw allow 9010 && ufw enable -y
+```
 
-Installing Nodes
+## Installing Nodes
 
 Clone Inery Nodes data from github
 
 
-```git clone https://github.com/inery-blockchain/inery-node```
+```
+git clone https://github.com/inery-blockchain/inery-node
+```
 
-Go to inery setup folder
+## Go to inery setup folder
 
-```cd inery-node/inery.setup```
 
-change app permission
+```
+cd inery-node/inery.setup
+```
 
-```chmod +x ine.py```
+## change app permission
 
-export path to local os environment for inery binaries
+```
+chmod +x ine.py
+```
 
-```./ine.py --export```
+## export path to local os environment for inery binaries
 
-refresh path variable
+```
+./ine.py --export
+```
 
-```cd; source .bashrc; cd -```
+##refresh path variable
 
-Edit the configuration
+```
+cd; source .bashrc; cd -
+```
 
-```sudo nano tools/config.json```
+## Edit the configuration
+
+```
+sudo nano tools/config.json
+```
 
 "MASTER_ACCOUNT":
 {
@@ -58,51 +85,69 @@ AccountName ganti Account Name kalian di dashboard
 Public Key dan Private Key juga kalian replace yang di dashboard
 IP di PEER_ADDRESS ganti pake IP Private kalo yang pake azure kalau yang pake cantabo masukin IP Public
 
-Screen Master Node
+## Screen Master Node
 
-```screen -S master```
+```
+screen -S master
 
-```./ine.py --master```
+./ine.py --master
+```
 
 NOTE! HARUS SETELAH SYNCRON
 
-Create Wallet 
+## Create Wallet 
 
 
-```cd;  cline wallet create --file defaultWallet.txt```
+```
+cd;  cline wallet create --file defaultWallet.txt
+```
 
-If your wallet has password, you need to unlock it first
+## If your wallet has password, you need to unlock it first
 
-```cline wallet unlock --password YOUR_WALLET_PASSWORD```
+```
+cline wallet unlock --password YOUR_WALLET_PASSWORD
+```
 
-import key 
+## import key 
 
-```cline wallet import --private-key MASTER_PRIVATE_KEY```
+```
+cline wallet import --private-key MASTER_PRIVATE_KEY
+```
 
 change MASTER_PRIVATE_KEY dengan private kalian
 
-Register as producer by executing command:
+## Register as producer by executing command:
 
-```cline system regproducer ACCOUNT_NAME ACCOUNT_PUBLIC_KEY 0.0.0.0:9010```
+```
+cline system regproducer ACCOUNT_NAME ACCOUNT_PUBLIC_KEY 0.0.0.0:9010
+```
 
-Approve your account as producer by executing command:
+## Approve your account as producer by executing command:
 
-```cline system makeprod approve ACCOUNT_NAME ACCOUNT_NAME```
+```
+cline system makeprod approve ACCOUNT_NAME ACCOUNT_NAME
+```
 
 Cek di explore -> https://explorer.inery.io/
 
 
 
-OPTIONAL
+## OPTIONAL
 
-Remove node (uninstall) go to 
+## Remove node (uninstall) go to 
 
-```inery.setup/inery.node/ and execute ./stop.sh script```
+```
+inery.setup/inery.node/ and execute ./stop.sh script
+```
 
-Untuk melanjutkan protokol blockchain, jalankan 
+## Untuk melanjutkan protokol blockchain, jalankan 
 
-```start.sh script```
+```
+start.sh script
+```
 
-Untuk menghapus blockchain dengan semua data dari mesin lokal, buka 
+## Untuk menghapus blockchain dengan semua data dari mesin lokal, buka 
 
-```inery.setup/inery.node/ and execute ./clean.sh script```
+```
+inery.setup/inery.node/ and execute ./clean.sh script
+```
